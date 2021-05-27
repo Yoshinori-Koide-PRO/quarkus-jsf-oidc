@@ -155,3 +155,28 @@ myfaces まるごとやってみる main は失敗
 
 2.3-next ブランチで成功
 
+# Apache MyFaces Tobago
+
+JSF リッチコンポーネント
+
+http://tobago-vm.apache.org/
+
+GitHub リポジトリ
+
+https://github.com/apache/myfaces-tobago
+
+masterはビルドが通らないので 4.x で試してみる。
+
+```
+$ git checkout tobago-4.x
+
+$ mvn install
+```
+
+デモを動かしてみる
+
+```
+$ cd tobago-example/tobago-example-demo
+
+$ mvn jetty:run
+```
