@@ -1,0 +1,24 @@
+services:
+  kc-postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+  keycloak:
+    image: jboss/keycloak:7.0.1
+    ports:
+      - 8180:8180
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: kc-postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    command: |
+      -Djboss.socket.binding.port-offset=100
+    depends_on:
+      - kc-postgres
